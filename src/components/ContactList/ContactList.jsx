@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContacts } from '../../redux/store';
 import { getFilteredContacts } from '../../redux/selectors';
+import css from './Conacts.module.css';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -22,11 +23,12 @@ const ContactList = () => {
   }
 
   return (
-    <ul>
+    <ul className={css.contacts}>
       {filteredContacts.map(({ id, name, number }) => (
-        <li key={id}>
-          <span>{name}:</span>
-          <span>{number}</span>
+        <li key={id} className={css.list}>
+          <span className={css.span}>{name}:</span>
+          <span className={css.span}>{number}</span>
+
           <button type="button" onClick={() => handleDelete(id)}>
             Delete
           </button>

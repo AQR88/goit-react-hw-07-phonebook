@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { addContacts } from '../../redux/store';
+import css from './ContactForm.module.css';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -42,29 +43,33 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input
-          type="text"
-          name="name"
-          placeholder="Add name"
-          value={name}
-          onChange={handleNameChange}
-        />
-      </label>
-      <label>
-        Number
-        <input
-          type="tel"
-          name="number"
-          placeholder="Add number"
-          value={number}
-          onChange={handleNumberChange}
-        />
-      </label>
-      <button type="submit">Add Contact</button>
-    </form>
+    <>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <label className={css.label}>
+          Name
+          <input
+            type="text"
+            name="name"
+            placeholder="Add name"
+            value={name}
+            onChange={handleNameChange}
+          />
+        </label>
+        <label className={css.label}>
+          Number
+          <input
+            type="tel"
+            name="number"
+            placeholder="Add number"
+            value={number}
+            onChange={handleNumberChange}
+          />
+        </label>
+        <button type="submit" className={css.btn}>
+          Add Contact
+        </button>
+      </form>
+    </>
   );
 };
 
