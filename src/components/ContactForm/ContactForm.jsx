@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { addContacts } from '../../redux/store';
+import { addContacts } from '../../redux/operations';
 import css from './ContactForm.module.css';
 
 const ContactForm = () => {
@@ -22,25 +22,6 @@ const ContactForm = () => {
   const handleNumberChange = event => {
     setNumber(event.target.value);
   };
-
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-
-  //   const isContactExist = () => {
-  //     return contacts.some(
-  //       contact =>
-  //         contact.name.toLowerCase().trim() === name.toLowerCase().trim() ||
-  //         contact.number.trim() === number.trim()
-  //     );
-  //   };
-
-  //   if (isContactExist()) {
-  //     alert(`Contact "${name}" is already in contacts😎`);
-  //   } else {
-  //     dispatch(addContacts({ id: nanoid(), name, number }));
-  //   }
-  //   reset();
-  // };
 
   const handleSubmit = event => {
     event.preventDefault();

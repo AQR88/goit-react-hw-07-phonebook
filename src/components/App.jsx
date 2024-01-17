@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchContacts } from '../redux/store';
-
+import { fetchContacts } from '../redux/operations';
 import Section from './Section/Section';
 import ContactForm from './ContactForm/ContactForm';
 import Filtration from './Filtration/Filtration';
