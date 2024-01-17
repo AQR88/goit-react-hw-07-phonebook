@@ -10,6 +10,7 @@ const Filtration = () => {
   const handleChange = event => {
     dispatch(updateFilter(event.target.value));
   };
+  // console.log('handleChange :>> ', handleChange);
 
   return (
     <label className={css.label}>
