@@ -23,18 +23,36 @@ const ContactForm = () => {
     setNumber(event.target.value);
   };
 
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+
+  //   const isContactExist = () => {
+  //     return contacts.some(
+  //       contact =>
+  //         contact.name.toLowerCase().trim() === name.toLowerCase().trim() ||
+  //         contact.number.trim() === number.trim()
+  //     );
+  //   };
+
+  //   if (isContactExist()) {
+  //     alert(`Contact "${name}" is already in contacts😎`);
+  //   } else {
+  //     dispatch(addContacts({ id: nanoid(), name, number }));
+  //   }
+  //   reset();
+  // };
+
   const handleSubmit = event => {
     event.preventDefault();
 
-    const isContactExist = () => {
-      return contacts.some(
-        contact =>
-          contact.name.toLowerCase().trim() === name.toLowerCase().trim() ||
-          contact.number.trim() === number.trim()
-      );
-    };
+    const isContactExist = contacts.some(
+      contact =>
+        (contact.name &&
+          contact.name.toLowerCase().trim() === name.toLowerCase().trim()) ||
+        (contact.number && contact.number.trim() === number.trim())
+    );
 
-    if (isContactExist()) {
+    if (isContactExist) {
       alert(`Contact "${name}" is already in contacts😎`);
     } else {
       dispatch(addContacts({ id: nanoid(), name, number }));
