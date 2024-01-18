@@ -10,8 +10,8 @@ const ContactList = () => {
   const isLoading = useSelector(state => state.contacts.isLoading);
   const error = useSelector(state => state.contacts.error);
 
-  const handleDelete = contactId => {
-    dispatch(deleteContacts(contactId));
+  const handleDelete = id => {
+    dispatch(deleteContacts(id));
   };
 
   if (isLoading) {
@@ -24,12 +24,12 @@ const ContactList = () => {
 
   return (
     <ul className={css.contacts}>
-      {filteredContacts.map(({ contactId, name, number }) => (
-        <li key={contactId} className={css.list}>
+      {filteredContacts.map(({ id, name, number }) => (
+        <li key={id} className={css.list}>
           <span className={css.span}>{name}:</span>
           <span className={css.span}>{number}</span>
 
-          <button type="button" onClick={() => handleDelete(contactId)}>
+          <button type="button" onClick={() => handleDelete(id)}>
             Delete
           </button>
         </li>
