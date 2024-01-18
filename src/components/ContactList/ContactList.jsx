@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContacts } from '../../redux/operations';
 import { getFilteredContacts } from '../../redux/selectors';
 import css from './Conacts.module.css';
+import Notiflix from 'notiflix';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const ContactList = () => {
 
   const handleDelete = id => {
     dispatch(deleteContacts(id));
+    Notiflix.Notify.failure('Contact deleted!');
   };
 
   if (isLoading) {

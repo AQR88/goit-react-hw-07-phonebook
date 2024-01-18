@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { addContacts } from '../../redux/operations';
 import css from './ContactForm.module.css';
+import Notiflix from 'notiflix';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -34,9 +35,10 @@ const ContactForm = () => {
     );
 
     if (isContactExist) {
-      alert(`Contact "${name}" is already in contacts😎`);
+      Notiflix.Notify.info(`Contact "${name}" is already in contacts😎`);
     } else {
       dispatch(addContacts({ id: nanoid(), name, number }));
+      Notiflix.Notify.success(`${name} was added to your phonebook`);
     }
     reset();
   };
